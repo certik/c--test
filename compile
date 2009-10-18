@@ -1,0 +1,2 @@
+g++ -c -o main.o main.c
+g++ -o main main.o
