@@ -2,7 +2,7 @@
 
 int main()
 {
-    int i = 5;
+    auto i = 5;
     printf("i=%d\n", i);
     return 0;
 }
