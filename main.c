@@ -42,8 +42,11 @@ double sum4(std::vector<double> &v)
 {
     double sum = 0;
     std::vector<double>::const_iterator it=v.begin();
-    for (; it != v.end(); ++it)
-        sum += *it;
+    std::vector<double>::const_iterator &it2 = it;
+    for (; it != v.end(); ++it) {
+        double x = *it;
+        sum += x;
+    }
     return sum;
 }
 
