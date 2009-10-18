@@ -1,2 +1,9 @@
+LD_LIBRARY_PATH=/usr/lib/gcc-snapshot/lib:$LD_LIBRARY_PATH
+PATH=/usr/lib/gcc-snapshot/bin:$PATH
+which g++
+g++ -v
+
+echo
+echo "Compiling..."
 g++ -c -o main.o main.c
 g++ -o main main.o
