@@ -5,5 +5,5 @@ g++ -v
 
 echo
 echo "Compiling..."
-g++ -std=c++0x -c -o main.o main.c
+g++ -std=c++0x -O2 -c -o main.o main.c
 g++ -o main main.o

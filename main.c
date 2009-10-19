@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include <vector>
 #include <typeinfo>
 
@@ -39,8 +40,8 @@ double sum3(std::vector<double> &v)
     return sum;
 }
 
-#define for_each(x, v) auto x=*((v).begin()); \
-    for (auto _it=(v).begin(); _it != (v).end(); x=*(++_it))
+#define for_each(element, list) auto element=*((list).begin()); \
+    for (auto _it=(list).begin(); _it != (list).end(); element=*(++_it))
 
 double sum4(std::vector<double> &v)
 {
@@ -52,12 +53,21 @@ double sum4(std::vector<double> &v)
 
 int main()
 {
-    std::vector<double> &v = init_vector(11);
+    std::vector<double> &v = init_vector(11000000);
+    clock_t t;
     auto i = 5;
     printf("i=%d\n", i);
+    t = clock();
     printf("sum1: %f\n", sum1(v));
+    printf("time: %d\n", clock() - t);
+    t = clock();
     printf("sum2: %f\n", sum2(v));
+    printf("time: %d\n", clock() - t);
+    t = clock();
     printf("sum3: %f\n", sum3(v));
+    printf("time: %d\n", clock() - t);
+    t = clock();
     printf("sum4: %f\n", sum4(v));
+    printf("time: %d\n", clock() - t);
     return 0;
 }
