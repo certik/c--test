@@ -39,15 +39,14 @@ double sum3(std::vector<double> &v)
     return sum;
 }
 
-#define for_each(x, v) for (auto it=v.begin(); it != v.end(); ++it)
+#define for_each(x, v) auto x=*((v).begin()); \
+    for (auto _it=(v).begin(); _it != (v).end(); x=*(++_it))
 
 double sum4(std::vector<double> &v)
 {
     double sum = 0;
-    for (auto it=v.begin(); it != v.end(); ++it){
-        const double &x = *it;
+    for_each(x, v)
         sum += x;
-    }
     return sum;
 }
 
