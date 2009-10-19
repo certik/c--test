@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <vector>
+#include <typeinfo>
 
 std::vector<double> & init_vector(int n)
 {
@@ -43,8 +44,10 @@ double sum4(std::vector<double> &v)
     double sum = 0;
     std::vector<double>::const_iterator it=v.begin();
     std::vector<double>::const_iterator &it2 = it;
-    for (; it != v.end(); ++it) {
-        double x = *it;
+    for (; it2 != v.end(); ++it2) {
+        // it2.base() is of a type "const double *"
+        const double *p = it2.base();
+        const double x = *p;
         sum += x;
     }
     return sum;
@@ -58,5 +61,6 @@ int main()
     printf("sum1: %f\n", sum1(v));
     printf("sum2: %f\n", sum2(v));
     printf("sum3: %f\n", sum3(v));
+    printf("sum4: %f\n", sum4(v));
     return 0;
 }
