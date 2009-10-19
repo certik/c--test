@@ -39,15 +39,13 @@ double sum3(std::vector<double> &v)
     return sum;
 }
 
+#define for_each(x, v) for (auto it=v.begin(); it != v.end(); ++it)
+
 double sum4(std::vector<double> &v)
 {
     double sum = 0;
-    std::vector<double>::const_iterator it=v.begin();
-    std::vector<double>::const_iterator &it2 = it;
-    for (; it2 != v.end(); ++it2) {
-        // it2.base() is of a type "const double *"
-        const double *p = it2.base();
-        const double x = *p;
+    for (auto it=v.begin(); it != v.end(); ++it){
+        const double &x = *it;
         sum += x;
     }
     return sum;
