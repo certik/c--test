@@ -58,8 +58,9 @@ double sum3(std::vector<double> &v)
     return sum;
 }
 
-#define for_each(element, list) auto element=*((list).begin()); \
-    for (auto _it=(list).begin(); _it != (list).end(); element=*(++_it))
+#define for_each(element, list) \
+    for (auto element=*((list).begin()), _it=(list).begin(); \
+            _it != (list).end(); element=*(++_it))
 
 double sum4(std::vector<double> &v)
 {
